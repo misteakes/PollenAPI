@@ -18,10 +18,11 @@ window.addEventListener('load', ()=> {
 
             api_key = '920cef3469524873afd9f8c244e2136d';
             
-            const proxy = 'http://cors-anywhere.herokuapp.com/';
+            const proxy = 'https://cors-anywhere.herokuapp.com/';
 
             const api = `${proxy}https://api.breezometer.com/pollen/v2/current-conditions?lat=48.857456&lon=2.354611&key=${api_key}`;
             //const api = `${proxy}https://api.breezometer.com/pollen/v2/current-conditions?lat=${lat}&lon=${long}&key=${api_key}`;
+
             fetch(api)
                 .then(response => {
                     return response.json();
@@ -33,7 +34,7 @@ window.addEventListener('load', ()=> {
                     let pollen_value_data = data.data.types.tree.index.value;
                     let plant_category_data = data.data.types.tree.index.category;
 
-                    // //set DOM element values with values from the API
+                    //set DOM element values with values from the API
 
                     pollenvalue.textContent = pollen_value_data;
                     plantcategory.textContent = plant_category_data;
